@@ -3,14 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Solobijou — Fine Handcrafted Jewelry</title>
-<meta name="description" content="Solobijou — Handcrafted jewelry, unique pieces made by hand.">
+<title>Solobijou — ClaSpot | Clasp Your Bracelet Solo</title>
+<meta name="description" content="ClaSpot by Solobijou — The elegant bracelet clasp helper. Put on any bracelet by yourself, effortlessly. No help needed.">
+<meta name="keywords" content="bracelet helper, clasp tool, jewelry accessory, bracelet clasp, one hand bracelet, ClaSpot, Solobijou">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Solobijou — ClaSpot">
+<meta property="og:description" content="Clasp your bracelet solo. The elegant precision tool for effortless independence.">
+<meta property="og:image" content="images/hero-product.png">
+<meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ── VARIABLES ── */
 :root {
   --cream: #f7f1e3;
   --cream-deep: #ede2c9;
@@ -20,9 +28,11 @@
   --ink: #2a1f17;
   --ink-soft: #5c4932;
   --line: rgba(42, 31, 23, 0.15);
+  --white: #fff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── RESET ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -32,7 +42,6 @@ body {
   font-weight: 400;
   line-height: 1.6;
   overflow-x: hidden;
-  position: relative;
 }
 
 body::before {
@@ -46,38 +55,143 @@ body::before {
   z-index: 1;
 }
 
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
 .serif { font-family: 'Fraunces', serif; }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Fraunces', serif;
   font-weight: 300;
   letter-spacing: -0.02em;
-  line-height: 1.05;
+  line-height: 1.1;
 }
+
+.italic { font-style: italic; color: var(--gold-deep); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
 .eyebrow {
   font-family: 'Manrope', sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--gold-deep);
 }
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--gold-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(138, 109, 59, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--white);
+}
+.btn-gold:hover {
+  background: var(--gold-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(138, 109, 59, 0.35);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-number {
+  font-family: 'Fraunces', serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  display: block;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── ANIMATIONS ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fade-in-left.visible { opacity: 1; transform: translateX(0); }
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fade-in-right.visible { opacity: 1; transform: translateX(0); }
+
+.stagger > * { transition-delay: calc(var(--i, 0) * 0.12s); }
+
+/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 1.5rem 3rem;
+  padding: 1.2rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(12px);
-  background: rgba(247, 241, 227, 0.7);
+  backdrop-filter: blur(16px);
+  background: rgba(247, 241, 227, 0.85);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.4s;
+  transition: all 0.4s;
 }
-nav.scrolled { border-bottom-color: var(--line); }
+nav.scrolled {
+  border-bottom-color: var(--line);
+  padding: 0.8rem 3rem;
+  box-shadow: 0 2px 20px rgba(42, 31, 23, 0.06);
+}
 
 .logo {
   font-family: 'Fraunces', serif;
@@ -87,109 +201,172 @@ nav.scrolled { border-bottom-color: var(--line); }
   letter-spacing: -0.01em;
 }
 .logo::after {
-  content: '◆';
+  content: '\u25C6';
   font-size: 0.5rem;
   vertical-align: super;
   margin-left: 0.3rem;
   color: var(--gold);
 }
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links { display: flex; gap: 2.2rem; align-items: center; }
 .nav-links a {
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 500;
   position: relative;
   transition: color 0.3s;
+  padding: 0.3rem 0;
 }
 .nav-links a:hover { color: var(--gold-deep); }
-.nav-links a::before {
-  content: attr(data-num);
-  font-size: 0.6rem;
-  color: var(--gold);
-  margin-right: 0.4rem;
-  vertical-align: super;
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s;
 }
+.nav-links a:hover::after { width: 100%; }
 
+.nav-cta {
+  padding: 0.6rem 1.5rem;
+  background: var(--ink);
+  color: var(--cream) !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.15em;
+  transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--gold-deep); }
+.nav-cta::after { display: none !important; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: all 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--cream);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.mobile-menu.active { display: flex; }
+.mobile-menu a {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--ink);
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--gold-deep); }
+
+/* ── HERO ── */
 .hero {
   min-height: 100vh;
-  padding: 10rem 3rem 6rem;
+  padding: 8rem 3rem 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
   position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .hero-text { position: relative; z-index: 2; }
 
 .hero h1 {
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
-  margin-bottom: 2rem;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  margin: 1.5rem 0 1.5rem;
+  line-height: 1;
 }
-.hero h1 .italic {
+.hero h1 .line2 {
+  display: block;
   font-style: italic;
   font-weight: 300;
   color: var(--gold-deep);
-  display: block;
-  margin-left: 1em;
+  margin-left: 0.5em;
 }
 
 .hero-tagline {
-  font-size: 1.05rem;
-  max-width: 420px;
+  font-size: 1.1rem;
+  max-width: 440px;
   color: var(--ink-soft);
   margin-bottom: 2.5rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
+
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
 
 .hero-meta {
   display: flex;
-  gap: 3rem;
+  gap: 2.5rem;
   padding-top: 2rem;
   border-top: 1px solid var(--line);
-  max-width: 420px;
+  max-width: 440px;
 }
 .hero-meta div { flex: 1; }
 .hero-meta .label {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-deep);
   margin-bottom: 0.4rem;
+  font-weight: 600;
 }
 .hero-meta .value {
   font-family: 'Fraunces', serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-style: italic;
 }
 
-.hero-visual { position: relative; height: 600px; }
-.visual-card {
-  position: absolute;
-  background: linear-gradient(135deg, var(--sand), var(--gold));
-  border-radius: 2px;
-  box-shadow: 0 20px 60px rgba(138, 109, 59, 0.2);
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.visual-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
-.card-1 { width: 55%; height: 70%; top: 5%; right: 10%; background: linear-gradient(135deg, #d9c5a0, #8a6d3b); }
-.card-2 { width: 40%; height: 50%; bottom: 5%; left: 0; background: linear-gradient(160deg, #ede2c9, #b8935a); }
 
-.card-badge {
+.hero-img-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.hero-img-wrapper img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 30px 80px rgba(138, 109, 59, 0.25);
+}
+
+.hero-badge {
   position: absolute;
-  bottom: 25%;
-  right: 5%;
-  width: 120px;
-  height: 120px;
+  top: -20px;
+  right: -20px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   background: var(--cream);
   border: 1px solid var(--gold);
@@ -199,151 +376,545 @@ nav.scrolled { border-bottom-color: var(--line); }
   text-align: center;
   font-family: 'Fraunces', serif;
   font-style: italic;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   line-height: 1.3;
   color: var(--gold-deep);
-  animation: rotate 25s linear infinite;
+  animation: float 4s ease-in-out infinite;
   z-index: 3;
+  box-shadow: 0 8px 30px rgba(138, 109, 59, 0.15);
 }
-@keyframes rotate { to { transform: rotate(360deg); } }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
-section {
+.hero-accent {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--sand) 0%, transparent 70%);
+  opacity: 0.5;
+  bottom: -40px;
+  left: -40px;
+  z-index: -1;
+}
+
+/* ── PROBLEM SECTION ── */
+.problem {
+  padding: 7rem 3rem;
+  position: relative;
+  z-index: 2;
+  background: var(--cream-deep);
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.problem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.problem-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.problem-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.problem-item h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+}
+.problem-item p {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.solution-box {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.solution-box::before {
+  content: '\u201C';
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  font-family: 'Fraunces', serif;
+  font-size: 12rem;
+  color: rgba(184, 147, 90, 0.1);
+  line-height: 1;
+}
+.solution-box .eyebrow { color: var(--sand); margin-bottom: 1.5rem; display: block; }
+.solution-box h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
+}
+.solution-box h3 .italic { color: var(--sand); }
+.solution-box p {
+  color: var(--sand);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ── HOW IT WORKS ── */
+.how-it-works {
   padding: 8rem 3rem;
   position: relative;
   z-index: 2;
 }
 
-.section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 2rem;
-  margin-bottom: 4rem;
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
 }
-.section-number {
+
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--cream-deep);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.8rem;
   font-family: 'Fraunces', serif;
-  font-size: 0.9rem;
+  font-size: 1.6rem;
   font-style: italic;
   color: var(--gold-deep);
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s;
 }
-.section-title { font-size: clamp(2rem, 4vw, 3.5rem); }
-.section-title .italic { font-style: italic; color: var(--gold-deep); }
+.step:hover .step-number {
+  background: var(--gold);
+  color: var(--white);
+  transform: scale(1.1);
+}
 
-.about { background: var(--cream-deep); }
-.about-grid {
+.step h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+.step p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  max-width: 280px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── FEATURES ── */
+.features {
+  padding: 8rem 3rem;
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  z-index: 2;
+}
+.features .section-number { color: var(--sand); }
+.features .section-title { color: var(--cream); }
+.features .section-title .italic { color: var(--sand); }
+.features .section-subtitle { color: var(--sand); }
+
+.features-grid {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 6rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
   margin: 0 auto;
 }
-.about-image {
-  aspect-ratio: 4/5;
-  background: linear-gradient(135deg, var(--sand), var(--gold-deep));
+
+.feature-card {
+  padding: 2.5rem;
+  border: 1px solid rgba(217, 197, 160, 0.15);
+  transition: all 0.4s;
   position: relative;
   overflow: hidden;
 }
-.about-image::after {
+.feature-card::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
+  top: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.4s;
+}
+.feature-card:hover::before { width: 100%; }
+.feature-card:hover {
+  border-color: rgba(217, 197, 160, 0.35);
+  background: rgba(217, 197, 160, 0.05);
+  transform: translateY(-4px);
 }
 
-.about-text h2 { font-size: clamp(2rem, 3.5vw, 3rem); margin: 1rem 0 2rem; }
-.about-text p {
-  font-size: 1.05rem;
-  color: var(--ink-soft);
-  margin-bottom: 1.5rem;
-  max-width: 500px;
-}
-.about-text p:first-of-type::first-letter {
-  font-family: 'Fraunces', serif;
-  font-size: 3.5rem;
-  font-style: italic;
-  float: left;
-  line-height: 0.85;
-  padding: 0.3rem 0.6rem 0 0;
-  color: var(--gold-deep);
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  display: block;
 }
 
-.signature {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
+.feature-card h3 {
   font-size: 1.2rem;
+  color: var(--cream);
+  margin-bottom: 0.8rem;
+}
+.feature-card p {
+  font-size: 0.92rem;
+  color: var(--sand);
+  line-height: 1.7;
+}
+
+/* ── PRODUCT SHOWCASE ── */
+.showcase {
+  padding: 8rem 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.showcase-img {
+  position: relative;
+}
+.showcase-img img {
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(138, 109, 59, 0.2);
+}
+.showcase-img::after {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  border: 1px solid var(--gold);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.showcase-details { }
+.showcase-details .eyebrow { display: block; margin-bottom: 1rem; }
+.showcase-details h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  margin-bottom: 1.5rem;
+}
+
+.spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+.spec-item .spec-label {
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.spec-item .spec-value {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
   color: var(--gold-deep);
-  margin-top: 2rem;
-  display: inline-block;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
+}
+
+/* ── GALLERY / SOCIAL PROOF ── */
+.gallery {
+  padding: 8rem 3rem;
+  background: var(--cream-deep);
+  position: relative;
+  z-index: 2;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 1300px;
+  max-width: 1100px;
   margin: 0 auto;
 }
-.gallery-item {
+
+.gallery-card {
   position: relative;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 10px 40px rgba(42, 31, 23, 0.1);
+  background: var(--white);
 }
-.gallery-item:hover { transform: translateY(-8px); }
+.gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(42, 31, 23, 0.15);
+}
 
-.gallery-img {
-  aspect-ratio: 1;
-  background: var(--sand);
+.gallery-card img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials {
+  padding: 8rem 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonials-slider {
+  max-width: 900px;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
-.gallery-img::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
 
-.item-1 .gallery-img { background: linear-gradient(135deg, #d9c5a0, #8a6d3b); aspect-ratio: 4/5; }
-.item-2 .gallery-img { background: linear-gradient(135deg, #ede2c9, #b8935a); }
-.item-3 .gallery-img { background: linear-gradient(160deg, #c9a876, #5c4932); }
-.item-4 .gallery-img { background: linear-gradient(135deg, #f0e6d2, #d9c5a0); aspect-ratio: 4/5; }
-.item-5 .gallery-img { background: linear-gradient(135deg, #b8935a, #2a1f17); }
-.item-6 .gallery-img { background: linear-gradient(135deg, #ede2c9, #8a6d3b); }
-
-.item-1 { grid-column: span 7; }
-.item-2 { grid-column: span 5; }
-.item-3 { grid-column: span 4; }
-.item-4 { grid-column: span 4; }
-.item-5 { grid-column: span 4; }
-.item-6 { grid-column: span 7; margin-top: 3rem; }
-
-.gallery-caption {
+.testimonial-track {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 1rem 0.2rem 0;
-  border-top: 1px solid var(--line);
-  margin-top: 1rem;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.gallery-name {
+
+.testimonial {
+  min-width: 100%;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.testimonial-quote {
   font-family: 'Fraunces', serif;
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 2rem;
+  position: relative;
 }
-.gallery-price {
-  font-size: 0.85rem;
-  color: var(--gold-deep);
-  letter-spacing: 0.05em;
+.testimonial-quote::before {
+  content: '\u201C';
+  font-size: 4rem;
+  color: var(--gold);
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
 }
 
+.testimonial-author {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--sand);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+.dot.active { background: var(--gold-deep); transform: scale(1.3); }
+
+/* ── FAQ ── */
+.faq {
+  padding: 8rem 3rem;
+  background: var(--cream-deep);
+  position: relative;
+  z-index: 2;
+}
+
+.faq-list {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  font-weight: 400;
+  transition: color 0.3s;
+}
+.faq-question:hover { color: var(--gold-deep); }
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  color: var(--gold-deep);
+}
+.faq-item.open .faq-icon {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-item.open .faq-answer { max-height: 200px; }
+
+.faq-answer p {
+  padding: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* ── NEWSLETTER ── */
+.newsletter {
+  padding: 6rem 3rem;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.newsletter-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3.5rem;
+  border: 1px solid var(--line);
+  position: relative;
+}
+.newsletter-box::before {
+  content: '\u25C6';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  padding: 0 1rem;
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+
+.newsletter-box h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+.newsletter-box p {
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.3s;
+}
+.newsletter-form input:focus { border-color: var(--gold); }
+.newsletter-form input::placeholder { color: var(--sand); }
+
+/* ── CONTACT ── */
 .contact {
   background: var(--ink);
   color: var(--cream);
   padding: 8rem 3rem;
+  position: relative;
+  z-index: 2;
 }
 .contact .eyebrow { color: var(--sand); }
 .contact .section-title { color: var(--cream); }
@@ -353,20 +924,20 @@ section {
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  max-width: 1200px;
+  gap: 5rem;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .contact-intro {
   font-family: 'Fraunces', serif;
   font-style: italic;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 300;
   line-height: 1.5;
   color: var(--cream);
-  max-width: 450px;
-  margin-bottom: 3rem;
+  max-width: 420px;
+  margin-bottom: 2.5rem;
 }
 
 .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -376,12 +947,12 @@ section {
   text-transform: uppercase;
   color: var(--sand);
   margin-bottom: 0.3rem;
+  font-weight: 600;
 }
 .contact-item a, .contact-item span {
   color: var(--cream);
-  text-decoration: none;
   font-family: 'Fraunces', serif;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-style: italic;
   transition: color 0.3s;
 }
@@ -391,7 +962,7 @@ form { display: flex; flex-direction: column; gap: 1.5rem; }
 
 .form-group {
   position: relative;
-  border-bottom: 1px solid rgba(247, 241, 227, 0.3);
+  border-bottom: 1px solid rgba(247, 241, 227, 0.2);
   padding-bottom: 0.5rem;
 }
 .form-group label {
@@ -401,8 +972,9 @@ form { display: flex; flex-direction: column; gap: 1.5rem; }
   text-transform: uppercase;
   color: var(--sand);
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
-input, textarea {
+.form-group input, .form-group textarea {
   width: 100%;
   background: transparent;
   border: none;
@@ -412,210 +984,538 @@ input, textarea {
   padding: 0.5rem 0;
   outline: none;
 }
-textarea { resize: vertical; min-height: 80px; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(217, 197, 160, 0.4); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-group:focus-within { border-bottom-color: var(--gold); }
 
-button[type="submit"] {
-  margin-top: 1rem;
-  align-self: flex-start;
-  background: transparent;
-  border: 1px solid var(--sand);
-  color: var(--cream);
-  padding: 1rem 2.5rem;
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-button[type="submit"]:hover {
-  background: var(--sand);
-  color: var(--ink);
-}
-
+/* ── FOOTER ── */
 footer {
   padding: 3rem;
   text-align: center;
   background: var(--ink);
-  color: var(--sand);
   font-size: 0.8rem;
   letter-spacing: 0.1em;
-  border-top: 1px solid rgba(217, 197, 160, 0.15);
+  border-top: 1px solid rgba(217, 197, 160, 0.1);
+  position: relative;
+  z-index: 2;
 }
-footer .italic { font-family: 'Fraunces', serif; font-style: italic; }
+footer p { color: var(--sand); }
 
-.fade-in {
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.footer-links a {
+  color: var(--sand);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--cream); }
+
+/* ── BACK TO TOP ── */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 46px;
+  height: 46px;
+  background: var(--ink);
+  color: var(--cream);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(20px);
+  transition: all 0.4s;
+  z-index: 50;
 }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: var(--gold-deep);
+  transform: translateY(-3px);
+}
 
+/* ── LIGHTBOX ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(42, 31, 23, 0.92);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid var(--sand);
+  color: var(--cream);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+.lightbox-close:hover { background: var(--gold-deep); border-color: var(--gold-deep); }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--ink);
+  color: var(--cream);
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  border-left: 3px solid var(--gold);
+  z-index: 300;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
-  .nav-links { gap: 1.2rem; }
-  .nav-links a { font-size: 0.75rem; }
-  .nav-links a::before { display: none; }
+  nav.scrolled { padding: 0.7rem 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
 
-  section { padding: 5rem 1.5rem; }
+  section, .problem, .how-it-works, .features, .showcase, .gallery,
+  .testimonials, .faq, .newsletter, .contact {
+    padding: 5rem 1.5rem;
+  }
 
   .hero {
     grid-template-columns: 1fr;
-    padding: 8rem 1.5rem 4rem;
+    padding: 7rem 1.5rem 3rem;
     min-height: auto;
+    gap: 2rem;
   }
-  .hero-visual { height: 400px; order: -1; }
-  .hero-meta { gap: 1.5rem; }
+  .hero-visual { order: -1; }
+  .hero h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+  .hero-meta { gap: 1.2rem; }
 
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .about-image { aspect-ratio: 4/3; }
+  .problem-grid { grid-template-columns: 1fr; gap: 3rem; }
 
-  .gallery-grid { gap: 1rem; }
-  .item-1, .item-2, .item-3, .item-4, .item-5, .item-6 { grid-column: span 6; }
-  .item-6 { margin-top: 0; }
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .steps::before { display: none; }
+
+  .features-grid { grid-template-columns: 1fr; }
+
+  .showcase-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .showcase-img { order: -1; }
+
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .gallery-card:nth-child(3) { grid-column: span 2; max-width: 60%; margin: 0 auto; }
 
   .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
 
-  .section-header { flex-direction: column; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .newsletter-form { flex-direction: column; }
+
+  .section-header { margin-bottom: 3rem; }
+}
+
+@media (max-width: 500px) {
+  .hero-meta { flex-direction: column; gap: 1rem; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn { text-align: center; justify-content: center; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-card:nth-child(3) { grid-column: span 1; max-width: 100%; }
+  .footer-links { flex-direction: column; gap: 1rem; }
 }
 </style>
 </head>
 <body>
 
+<!-- ────── NAV ────── -->
 <nav id="nav">
-  <div class="logo">Solobijou</div>
+  <a href="#" class="logo">Solobijou</a>
   <ul class="nav-links">
-    <li><a href="#collection" data-num="01">Collection</a></li>
-    <li><a href="#about" data-num="02">Atelier</a></li>
-    <li><a href="#contact" data-num="03">Contact</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#product" class="nav-cta">Discover</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<header class="hero">
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#how-it-works" class="mobile-link">How It Works</a>
+  <a href="#features" class="mobile-link">Features</a>
+  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#faq" class="mobile-link">FAQ</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="#product" class="btn btn-primary mobile-link" style="margin-top:1rem;">Discover</a>
+</div>
+
+<!-- ────── HERO ────── -->
+<header class="hero" id="home">
   <div class="hero-text">
-    <div class="eyebrow">Artisanal House — Est. 2026</div>
-    <h1 style="margin-top: 1.5rem;">
-      Fine
-      <span class="italic">jewelry.</span>
+    <div class="eyebrow">Introducing ClaSpot by Solobijou</div>
+    <h1>
+      Clasp it
+      <span class="line2">yourself.</span>
     </h1>
     <p class="hero-tagline">
-      Each piece is shaped by hand, with the care that an object meant to last a lifetime deserves. Rare creations, made for those looking for something else.
+      The precision tool that holds your bracelet in place so you can fasten it with one hand. No more struggling. No more asking for help.
     </p>
+    <div class="hero-buttons">
+      <a href="#product" class="btn btn-primary">Discover ClaSpot <span>&rarr;</span></a>
+      <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+    </div>
     <div class="hero-meta">
       <div>
-        <div class="label">Origin</div>
+        <div class="label">Design</div>
+        <div class="value">18k Gold Finish</div>
+      </div>
+      <div>
+        <div class="label">Fits</div>
+        <div class="value">All Clasps</div>
+      </div>
+      <div>
+        <div class="label">Made In</div>
         <div class="value">France</div>
-      </div>
-      <div>
-        <div class="label">Pieces</div>
-        <div class="value">One of a kind</div>
-      </div>
-      <div>
-        <div class="label">Finish</div>
-        <div class="value">18k gold</div>
       </div>
     </div>
   </div>
 
-  <div class="hero-visual">
-    <div class="visual-card card-1"></div>
-    <div class="visual-card card-2"></div>
-    <div class="card-badge">
-      One<br>of a kind<br>◆
+  <div class="hero-visual fade-in">
+    <div class="hero-img-wrapper">
+      <img src="images/hero-product.png" alt="ClaSpot bracelet clasp helper tool in 18k gold finish, holding a delicate chain bracelet on a wrist" loading="eager">
+      <div class="hero-badge">
+        Solo.<br>Effortless.<br>&#9670;
+      </div>
+      <div class="hero-accent"></div>
     </div>
   </div>
 </header>
 
-<section id="about" class="about">
+<!-- ────── PROBLEM / SOLUTION ────── -->
+<section class="problem" id="problem">
   <div class="section-header fade-in">
-    <span class="section-number">— 02</span>
-    <h2 class="section-title">Our <span class="italic">atelier.</span></h2>
+    <span class="section-number">&#8212; 01</span>
+    <h2 class="section-title">A familiar <span class="italic">struggle.</span></h2>
+    <p class="section-subtitle">Every bracelet lover knows the frustration. We designed ClaSpot to end it.</p>
   </div>
 
-  <div class="about-grid">
-    <div class="about-image fade-in"></div>
+  <div class="problem-grid">
+    <div class="problem-list fade-in-left stagger">
+      <div class="problem-item" style="--i:0">
+        <div class="problem-icon">&#10005;</div>
+        <div>
+          <h4>Tiny clasps, one hand</h4>
+          <p>Lobster clasps and spring rings are nearly impossible to fasten solo, especially on delicate chains.</p>
+        </div>
+      </div>
+      <div class="problem-item" style="--i:1">
+        <div class="problem-icon">&#10005;</div>
+        <div>
+          <h4>Always needing someone</h4>
+          <p>How many times have you had to ask a colleague, roommate, or stranger to help with your bracelet?</p>
+        </div>
+      </div>
+      <div class="problem-item" style="--i:2">
+        <div class="problem-icon">&#10005;</div>
+        <div>
+          <h4>Skipping your favorites</h4>
+          <p>Too many beautiful bracelets stay in the jewelry box because they're just too hard to put on alone.</p>
+        </div>
+      </div>
+    </div>
 
-    <div class="about-text fade-in">
-      <div class="eyebrow">The story</div>
-      <h2 style="margin-top: 1rem;">A gesture, <span class="serif" style="font-style:italic; color:var(--gold-deep);">a patience.</span></h2>
-
-      <p>
-        Solobijou was born from a simple conviction: no two pieces of jewelry should ever look alike. Every creation is imagined, drawn, then shaped by hand in our atelier — from the first sketch to the final finish.
-      </p>
-      <p>
-        We work gold and natural stones using techniques passed down through generations. Nothing is mass-produced. Nothing repeats itself. Each piece carries within it the singularity of the moment it was made.
-      </p>
-      <p>
-        That rarity is what we offer — and that slowness, too, which has become a kind of luxury today.
-      </p>
-
-      <div class="signature">— Solobijou, an independent house.</div>
+    <div class="solution-box fade-in-right">
+      <span class="eyebrow">The Solution</span>
+      <h3>One tool. <span class="italic">Total independence.</span></h3>
+      <p>ClaSpot's precision tip holds your bracelet securely in place, giving your free hand full control to fasten any clasp in seconds. Sleek enough to keep on your vanity. Small enough to carry anywhere.</p>
     </div>
   </div>
 </section>
 
-<section id="collection">
+<!-- ────── HOW IT WORKS ────── -->
+<section class="how-it-works" id="how-it-works">
   <div class="section-header fade-in">
-    <span class="section-number">— 01</span>
-    <h2 class="section-title">The <span class="italic">collection.</span></h2>
+    <span class="section-number">&#8212; 02</span>
+    <h2 class="section-title">How it <span class="italic">works.</span></h2>
+    <p class="section-subtitle">Three seconds. That's all it takes.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step fade-in" style="transition-delay: 0s">
+      <div class="step-number">1</div>
+      <h3>Hold</h3>
+      <p>Place ClaSpot on your wrist and secure one end of your bracelet in its precision grip.</p>
+    </div>
+    <div class="step fade-in" style="transition-delay: 0.15s">
+      <div class="step-number">2</div>
+      <h3>Clasp</h3>
+      <p>With the bracelet held steady, use your free hand to close the clasp with ease.</p>
+    </div>
+    <div class="step fade-in" style="transition-delay: 0.3s">
+      <div class="step-number">3</div>
+      <h3>Done</h3>
+      <p>Remove ClaSpot and you're ready. Effortless, elegant, and completely independent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ────── FEATURES ────── -->
+<section class="features" id="features">
+  <div class="section-header fade-in">
+    <span class="section-number">&#8212; 03</span>
+    <h2 class="section-title">Designed with <span class="italic">intention.</span></h2>
+    <p class="section-subtitle">Every detail serves a purpose. Form meets function in 18-karat gold.</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card fade-in" style="transition-delay: 0s">
+      <span class="feature-icon">&#9670;</span>
+      <h3>Precision Tip</h3>
+      <p>Engineered to grip lobster clasps, spring rings, and toggle closures with pinpoint accuracy. Holds firm without scratching your jewelry.</p>
+    </div>
+    <div class="feature-card fade-in" style="transition-delay: 0.1s">
+      <span class="feature-icon">&#10022;</span>
+      <h3>18k Gold Finish</h3>
+      <p>A luxurious gold-plated exterior that looks as beautiful as the bracelets it helps you wear. This is a beauty essential, not just a tool.</p>
+    </div>
+    <div class="feature-card fade-in" style="transition-delay: 0.2s">
+      <span class="feature-icon">&#9674;</span>
+      <h3>Universal Fit</h3>
+      <p>Works with virtually every bracelet clasp type: lobster, spring ring, toggle, barrel, and magnetic. One tool for your entire collection.</p>
+    </div>
+    <div class="feature-card fade-in" style="transition-delay: 0.3s">
+      <span class="feature-icon">&#10038;</span>
+      <h3>Travel-Ready</h3>
+      <p>Compact and lightweight, ClaSpot slips into any pouch, clutch, or travel case. Your independence goes wherever you do.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ────── PRODUCT SHOWCASE ────── -->
+<section class="showcase" id="product">
+  <div class="showcase-grid">
+    <div class="showcase-img fade-in-left">
+      <img src="images/hero-product.png" alt="ClaSpot precision bracelet tool close-up showing the gold finish and precision grip mechanism">
+    </div>
+    <div class="showcase-details fade-in-right">
+      <span class="eyebrow">The Product</span>
+      <h2>ClaSpot <span class="italic">Gold Assist</span></h2>
+      <p style="color: var(--ink-soft); line-height: 1.7; margin-bottom: 1rem;">
+        Putting on a bracelet shouldn't require help. ClaSpot gives you full control so you can fasten your jewelry effortlessly, anytime, anywhere.
+      </p>
+
+      <div class="spec-list">
+        <div class="spec-item">
+          <span class="spec-label">Finish</span>
+          <span class="spec-value">18k Gold Plated</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Compatibility</span>
+          <span class="spec-value">All Clasp Types</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Material</span>
+          <span class="spec-value">Stainless Steel Core</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Weight</span>
+          <span class="spec-value">Featherlight</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Designed In</span>
+          <span class="spec-value">France</span>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn btn-gold" style="margin-top: 1rem;">Get Yours <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ────── GALLERY ────── -->
+<section class="gallery" id="gallery">
+  <div class="section-header fade-in">
+    <span class="section-number">&#8212; 04</span>
+    <h2 class="section-title">ClaSpot in <span class="italic">action.</span></h2>
+    <p class="section-subtitle">Real moments of effortless independence. Follow us @solobijou.</p>
   </div>
 
   <div class="gallery-grid">
-    <div class="gallery-item item-1 fade-in">
-      <div class="gallery-img"></div>
-      <div class="gallery-caption">
-        <span class="gallery-name">Sun Necklace</span>
-        <span class="gallery-price">€ 480</span>
+    <div class="gallery-card fade-in" style="transition-delay: 0s" onclick="openLightbox(this)">
+      <img src="images/instagram-1.jpg" alt="ClaSpot tool helping clasp a delicate star charm bracelet on a wrist">
+    </div>
+    <div class="gallery-card fade-in" style="transition-delay: 0.12s" onclick="openLightbox(this)">
+      <img src="images/instagram-2.jpg" alt="ClaSpot Gold Assist holding a chain bracelet for easy one-hand clasping">
+    </div>
+    <div class="gallery-card fade-in" style="transition-delay: 0.24s" onclick="openLightbox(this)">
+      <img src="images/instagram-3.jpg" alt="Close-up of ClaSpot precision tip gripping a bracelet clasp securely">
+    </div>
+  </div>
+</section>
+
+<!-- ────── TESTIMONIALS ────── -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header fade-in">
+    <span class="section-number">&#8212; 05</span>
+    <h2 class="section-title">What they <span class="italic">say.</span></h2>
+  </div>
+
+  <div class="testimonials-slider fade-in">
+    <div class="testimonial-track" id="testimonialTrack">
+      <div class="testimonial">
+        <p class="testimonial-quote">I used to leave my favorite bracelet at home because I couldn't put it on alone. ClaSpot changed that completely. Now I wear it every single day.</p>
+        <span class="testimonial-author">&#8212; Marie L., Paris</span>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-quote">It's so beautifully made that I keep it right next to my jewelry box. Guests always ask about it. Functional and gorgeous.</p>
+        <span class="testimonial-author">&#8212; Sarah K., Singapore</span>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-quote">I bought it as a gift for my mother who has arthritis. She cried when she could put on her charm bracelet by herself again. Worth every penny.</p>
+        <span class="testimonial-author">&#8212; Emily T., London</span>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-quote">Traveling alone, getting ready alone, doing it all by myself has never been a problem. But bracelets? That was the one thing. Not anymore.</p>
+        <span class="testimonial-author">&#8212; Anika R., Dubai</span>
       </div>
     </div>
-    <div class="gallery-item item-2 fade-in">
-      <div class="gallery-img"></div>
-      <div class="gallery-caption">
-        <span class="gallery-name">Obsidian Ring</span>
-        <span class="gallery-price">€ 320</span>
+    <div class="testimonial-dots" id="testimonialDots">
+      <button class="dot active" data-index="0" aria-label="Testimonial 1"></button>
+      <button class="dot" data-index="1" aria-label="Testimonial 2"></button>
+      <button class="dot" data-index="2" aria-label="Testimonial 3"></button>
+      <button class="dot" data-index="3" aria-label="Testimonial 4"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ────── FAQ ────── -->
+<section class="faq" id="faq">
+  <div class="section-header fade-in">
+    <span class="section-number">&#8212; 06</span>
+    <h2 class="section-title">Common <span class="italic">questions.</span></h2>
+  </div>
+
+  <div class="faq-list fade-in">
+    <div class="faq-item">
+      <button class="faq-question">
+        What types of bracelets does ClaSpot work with?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>ClaSpot is designed to work with virtually all bracelet clasp types including lobster clasps, spring rings, toggle closures, barrel clasps, and magnetic clasps. Whether it's a delicate chain or a heavier link bracelet, ClaSpot holds it securely.</p>
       </div>
     </div>
-    <div class="gallery-item item-3 fade-in">
-      <div class="gallery-img"></div>
-      <div class="gallery-caption">
-        <span class="gallery-name">Aurora Bracelet</span>
-        <span class="gallery-price">€ 260</span>
+    <div class="faq-item">
+      <button class="faq-question">
+        Is ClaSpot suitable for people with limited dexterity?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Absolutely. ClaSpot was designed with accessibility in mind. Its ergonomic grip and precision tip make it ideal for anyone with arthritis, limited mobility, or reduced hand strength. It transforms a two-hand task into an effortless one-hand motion.</p>
       </div>
     </div>
-    <div class="gallery-item item-4 fade-in">
-      <div class="gallery-img"></div>
-      <div class="gallery-caption">
-        <span class="gallery-name">Moon Earrings</span>
-        <span class="gallery-price">€ 195</span>
+    <div class="faq-item">
+      <button class="faq-question">
+        Will ClaSpot scratch my jewelry?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>No. The precision tip is carefully designed with smooth, polished edges that grip your bracelet securely without scratching or damaging even the most delicate chains and finishes.</p>
       </div>
     </div>
-    <div class="gallery-item item-5 fade-in">
-      <div class="gallery-img"></div>
-      <div class="gallery-caption">
-        <span class="gallery-name">Onyx Pendant</span>
-        <span class="gallery-price">€ 410</span>
+    <div class="faq-item">
+      <button class="faq-question">
+        How do I care for my ClaSpot?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Simply wipe with a soft, dry cloth after use. Avoid prolonged exposure to water or harsh chemicals to preserve the 18k gold finish. Store in the included pouch when traveling.</p>
       </div>
     </div>
-    <div class="gallery-item item-6 fade-in">
-      <div class="gallery-img"></div>
-      <div class="gallery-caption">
-        <span class="gallery-name">Solstice Chain</span>
-        <span class="gallery-price">€ 520</span>
+    <div class="faq-item">
+      <button class="faq-question">
+        Can I use ClaSpot for necklaces too?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>While ClaSpot is primarily designed for bracelets, many customers have found it helpful for fastening necklaces as well, particularly when dealing with small clasps behind the neck.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Is it a good gift idea?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>ClaSpot is one of the most thoughtful gifts you can give to anyone who wears bracelets. Its elegant 18k gold finish and premium packaging make it a perfect present for birthdays, holidays, Mother's Day, or just because.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ────── NEWSLETTER ────── -->
+<section class="newsletter" id="newsletter">
+  <div class="newsletter-box fade-in">
+    <h3>Stay in the <span class="italic">loop.</span></h3>
+    <p>Be the first to know about launches, restocks, and exclusive offers.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="Your email address" required aria-label="Email address">
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- ────── CONTACT ────── -->
 <section id="contact" class="contact">
   <div class="section-header fade-in">
-    <span class="section-number">— 03</span>
+    <span class="section-number">&#8212; 07</span>
     <h2 class="section-title">Get in <span class="italic">touch.</span></h2>
   </div>
 
   <div class="contact-grid">
     <div class="fade-in">
       <p class="contact-intro">
-        A piece caught your eye? A custom commission? Write to us — every message finds a personal reply.
+        Have a question about ClaSpot? Want to stock it in your store? We'd love to hear from you.
       </p>
 
       <div class="contact-info">
@@ -625,43 +1525,98 @@ footer .italic { font-family: 'Fraunces', serif; font-style: italic; }
         </div>
         <div class="contact-item">
           <div class="label">Instagram</div>
-          <a href="https://instagram.com/solobijou" target="_blank">@solobijou</a>
+          <a href="https://instagram.com/solobijou" target="_blank" rel="noopener">@solobijou</a>
         </div>
         <div class="contact-item">
-          <div class="label">Atelier</div>
-          <span>Paris — Singapore</span>
+          <div class="label">Based In</div>
+          <span>Paris &mdash; Singapore</span>
         </div>
       </div>
     </div>
 
-    <form class="fade-in" action="mailto:contact@solobijou.com" method="post" enctype="text/plain">
+    <form class="fade-in" id="contactForm">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="What's this about?">
       </div>
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+        <textarea id="message" name="message" rows="4" placeholder="Tell us more..." required></textarea>
       </div>
-      <button type="submit">Send</button>
+      <button type="submit" class="btn btn-primary">Send Message <span>&rarr;</span></button>
     </form>
   </div>
 </section>
 
+<!-- ────── FOOTER ────── -->
 <footer>
-  <p>© 2026 Solobijou — <span class="italic">Crafted with patience.</span></p>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#features">Features</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p>&copy; 2026 Solobijou &mdash; <span class="serif" style="font-style:italic;">Crafted with intention.</span></p>
 </footer>
 
+<!-- ────── BACK TO TOP ────── -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<!-- ────── LIGHTBOX ────── -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightboxImg" src="" alt="Enlarged product image">
+</div>
+
+<!-- ────── TOAST ────── -->
+<div class="toast" id="toast"></div>
+
+<!-- ────── SCRIPTS ────── -->
 <script>
-const nav = document.getElementById('nav');
+// ── Nav scroll effect ──
+const navEl = document.getElementById('nav');
+const backToTop = document.getElementById('backToTop');
+
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
+  const y = window.scrollY;
+  navEl.classList.toggle('scrolled', y > 30);
+  backToTop.classList.toggle('visible', y > 600);
 });
 
+// ── Back to top ──
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ── Mobile menu ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+
+// ── Scroll animations ──
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -669,9 +1624,155 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.12 });
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+  observer.observe(el);
+});
+
+// ── Testimonial slider ──
+const track = document.getElementById('testimonialTrack');
+const dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+const totalSlides = dots.length;
+let autoSlideTimer;
+
+function goToSlide(index) {
+  currentSlide = index;
+  track.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === index));
+}
+
+function nextSlide() {
+  goToSlide((currentSlide + 1) % totalSlides);
+}
+
+function startAutoSlide() {
+  autoSlideTimer = setInterval(nextSlide, 5000);
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlideTimer);
+  startAutoSlide();
+}
+
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    goToSlide(parseInt(dot.dataset.index));
+    resetAutoSlide();
+  });
+});
+
+startAutoSlide();
+
+// Touch support for testimonials
+let touchStartX = 0;
+const slider = document.querySelector('.testimonials-slider');
+
+slider.addEventListener('touchstart', (e) => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+
+slider.addEventListener('touchend', (e) => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      goToSlide(Math.min(currentSlide + 1, totalSlides - 1));
+    } else {
+      goToSlide(Math.max(currentSlide - 1, 0));
+    }
+    resetAutoSlide();
+  }
+});
+
+// ── FAQ Accordion ──
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+    // Toggle current
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// ── Lightbox ──
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+
+function openLightbox(card) {
+  const img = card.querySelector('img');
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// ── Toast notification ──
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
+}
+
+// ── Newsletter form ──
+document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  showToast('Thank you! You\'re on the list.');
+  e.target.reset();
+});
+
+// ── Contact form ──
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  showToast('Message sent! We\'ll get back to you soon.');
+  e.target.reset();
+});
+
+// ── Smooth scroll for anchor links ──
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = navEl.offsetHeight + 10;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// ── Active nav link highlight on scroll ──
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 150;
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute('id');
+    const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+    if (link) {
+      if (scrollY >= top && scrollY < top + height) {
+        link.style.color = 'var(--gold-deep)';
+      } else {
+        link.style.color = '';
+      }
+    }
+  });
+});
 </script>
 
 </body>
