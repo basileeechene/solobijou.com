@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solobijou — Fine Handcrafted Jewelry</title>
+<meta name="description" content="Solobijou — Handcrafted jewelry, unique pieces made by hand.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #f7f1e3;
+  --cream-deep: #ede2c9;
+  --sand: #d9c5a0;
+  --gold: #b8935a;
+  --gold-deep: #8a6d3b;
+  --ink: #2a1f17;
+  --ink-soft: #5c4932;
+  --line: rgba(42, 31, 23, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.serif { font-family: 'Fraunces', serif; }
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.eyebrow {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--gold-deep);
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(247, 241, 227, 0.7);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s;
+}
+nav.scrolled { border-bottom-color: var(--line); }
+
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.logo::after {
+  content: '◆';
+  font-size: 0.5rem;
+  vertical-align: super;
+  margin-left: 0.3rem;
+  color: var(--gold);
+}
+
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold-deep); }
+.nav-links a::before {
+  content: attr(data-num);
+  font-size: 0.6rem;
+  color: var(--gold);
+  margin-right: 0.4rem;
+  vertical-align: super;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 10rem 3rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+}
+
+.hero-text { position: relative; z-index: 2; }
+
+.hero h1 {
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  margin-bottom: 2rem;
+}
+.hero h1 .italic {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-deep);
+  display: block;
+  margin-left: 1em;
+}
+
+.hero-tagline {
+  font-size: 1.05rem;
+  max-width: 420px;
+  color: var(--ink-soft);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  max-width: 420px;
+}
+.hero-meta div { flex: 1; }
+.hero-meta .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.4rem;
+}
+.hero-meta .value {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.hero-visual { position: relative; height: 600px; }
+.visual-card {
+  position: absolute;
+  background: linear-gradient(135deg, var(--sand), var(--gold));
+  border-radius: 2px;
+  box-shadow: 0 20px 60px rgba(138, 109, 59, 0.2);
+}
+.visual-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+.card-1 { width: 55%; height: 70%; top: 5%; right: 10%; background: linear-gradient(135deg, #d9c5a0, #8a6d3b); }
+.card-2 { width: 40%; height: 50%; bottom: 5%; left: 0; background: linear-gradient(160deg, #ede2c9, #b8935a); }
+
+.card-badge {
+  position: absolute;
+  bottom: 25%;
+  right: 5%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: var(--gold-deep);
+  animation: rotate 25s linear infinite;
+  z-index: 3;
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+
+section {
+  padding: 8rem 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+.section-number {
+  font-family: 'Fraunces', serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--gold-deep);
+}
+.section-title { font-size: clamp(2rem, 4vw, 3.5rem); }
+.section-title .italic { font-style: italic; color: var(--gold-deep); }
+
+.about { background: var(--cream-deep); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.about-image {
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--sand), var(--gold-deep));
+  position: relative;
+  overflow: hidden;
+}
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.about-text h2 { font-size: clamp(2rem, 3.5vw, 3rem); margin: 1rem 0 2rem; }
+.about-text p {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+.about-text p:first-of-type::first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 3.5rem;
+  font-style: italic;
+  float: left;
+  line-height: 0.85;
+  padding: 0.3rem 0.6rem 0 0;
+  color: var(--gold-deep);
+}
+
+.signature {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold-deep);
+  margin-top: 2rem;
+  display: inline-block;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.gallery-item:hover { transform: translateY(-8px); }
+
+.gallery-img {
+  aspect-ratio: 1;
+  background: var(--sand);
+  position: relative;
+  overflow: hidden;
+}
+.gallery-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.item-1 .gallery-img { background: linear-gradient(135deg, #d9c5a0, #8a6d3b); aspect-ratio: 4/5; }
+.item-2 .gallery-img { background: linear-gradient(135deg, #ede2c9, #b8935a); }
+.item-3 .gallery-img { background: linear-gradient(160deg, #c9a876, #5c4932); }
+.item-4 .gallery-img { background: linear-gradient(135deg, #f0e6d2, #d9c5a0); aspect-ratio: 4/5; }
+.item-5 .gallery-img { background: linear-gradient(135deg, #b8935a, #2a1f17); }
+.item-6 .gallery-img { background: linear-gradient(135deg, #ede2c9, #8a6d3b); }
+
+.item-1 { grid-column: span 7; }
+.item-2 { grid-column: span 5; }
+.item-3 { grid-column: span 4; }
+.item-4 { grid-column: span 4; }
+.item-5 { grid-column: span 4; }
+.item-6 { grid-column: span 7; margin-top: 3rem; }
+
+.gallery-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem 0.2rem 0;
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+}
+.gallery-name {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+.gallery-price {
+  font-size: 0.85rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.05em;
+}
+
+.contact {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8rem 3rem;
+}
+.contact .eyebrow { color: var(--sand); }
+.contact .section-title { color: var(--cream); }
+.contact .section-title .italic { color: var(--sand); }
+.contact .section-number { color: var(--sand); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-intro {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--cream);
+  max-width: 450px;
+  margin-bottom: 3rem;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-item .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 0.3rem;
+}
+.contact-item a, .contact-item span {
+  color: var(--cream);
+  text-decoration: none;
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  transition: color 0.3s;
+}
+.contact-item a:hover { color: var(--sand); }
+
+form { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.form-group {
+  position: relative;
+  border-bottom: 1px solid rgba(247, 241, 227, 0.3);
+  padding-bottom: 0.5rem;
+}
+.form-group label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 0.5rem;
+}
+input, textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  outline: none;
+}
+textarea { resize: vertical; min-height: 80px; }
+
+button[type="submit"] {
+  margin-top: 1rem;
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--sand);
+  color: var(--cream);
+  padding: 1rem 2.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+button[type="submit"]:hover {
+  background: var(--sand);
+  color: var(--ink);
+}
+
+footer {
+  padding: 3rem;
+  text-align: center;
+  background: var(--ink);
+  color: var(--sand);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  border-top: 1px solid rgba(217, 197, 160, 0.15);
+}
+footer .italic { font-family: 'Fraunces', serif; font-style: italic; }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.2rem; }
+  .nav-links a { font-size: 0.75rem; }
+  .nav-links a::before { display: none; }
+
+  section { padding: 5rem 1.5rem; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 8rem 1.5rem 4rem;
+    min-height: auto;
+  }
+  .hero-visual { height: 400px; order: -1; }
+  .hero-meta { gap: 1.5rem; }
+
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-image { aspect-ratio: 4/3; }
+
+  .gallery-grid { gap: 1rem; }
+  .item-1, .item-2, .item-3, .item-4, .item-5, .item-6 { grid-column: span 6; }
+  .item-6 { margin-top: 0; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+  .section-header { flex-direction: column; gap: 0.5rem; margin-bottom: 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">Solobijou</div>
+  <ul class="nav-links">
+    <li><a href="#collection" data-num="01">Collection</a></li>
+    <li><a href="#about" data-num="02">Atelier</a></li>
+    <li><a href="#contact" data-num="03">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Artisanal House — Est. 2026</div>
+    <h1 style="margin-top: 1.5rem;">
+      Fine
+      <span class="italic">jewelry.</span>
+    </h1>
+    <p class="hero-tagline">
+      Each piece is shaped by hand, with the care that an object meant to last a lifetime deserves. Rare creations, made for those looking for something else.
+    </p>
+    <div class="hero-meta">
+      <div>
+        <div class="label">Origin</div>
+        <div class="value">France</div>
+      </div>
+      <div>
+        <div class="label">Pieces</div>
+        <div class="value">One of a kind</div>
+      </div>
+      <div>
+        <div class="label">Finish</div>
+        <div class="value">18k gold</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="visual-card card-1"></div>
+    <div class="visual-card card-2"></div>
+    <div class="card-badge">
+      One<br>of a kind<br>◆
+    </div>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <div class="section-header fade-in">
+    <span class="section-number">— 02</span>
+    <h2 class="section-title">Our <span class="italic">atelier.</span></h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-image fade-in"></div>
+
+    <div class="about-text fade-in">
+      <div class="eyebrow">The story</div>
+      <h2 style="margin-top: 1rem;">A gesture, <span class="serif" style="font-style:italic; color:var(--gold-deep);">a patience.</span></h2>
+
+      <p>
+        Solobijou was born from a simple conviction: no two pieces of jewelry should ever look alike. Every creation is imagined, drawn, then shaped by hand in our atelier — from the first sketch to the final finish.
+      </p>
+      <p>
+        We work gold and natural stones using techniques passed down through generations. Nothing is mass-produced. Nothing repeats itself. Each piece carries within it the singularity of the moment it was made.
+      </p>
+      <p>
+        That rarity is what we offer — and that slowness, too, which has become a kind of luxury today.
+      </p>
+
+      <div class="signature">— Solobijou, an independent house.</div>
+    </div>
+  </div>
+</section>
+
+<section id="collection">
+  <div class="section-header fade-in">
+    <span class="section-number">— 01</span>
+    <h2 class="section-title">The <span class="italic">collection.</span></h2>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item item-1 fade-in">
+      <div class="gallery-img"></div>
+      <div class="gallery-caption">
+        <span class="gallery-name">Sun Necklace</span>
+        <span class="gallery-price">€ 480</span>
+      </div>
+    </div>
+    <div class="gallery-item item-2 fade-in">
+      <div class="gallery-img"></div>
+      <div class="gallery-caption">
+        <span class="gallery-name">Obsidian Ring</span>
+        <span class="gallery-price">€ 320</span>
+      </div>
+    </div>
+    <div class="gallery-item item-3 fade-in">
+      <div class="gallery-img"></div>
+      <div class="gallery-caption">
+        <span class="gallery-name">Aurora Bracelet</span>
+        <span class="gallery-price">€ 260</span>
+      </div>
+    </div>
+    <div class="gallery-item item-4 fade-in">
+      <div class="gallery-img"></div>
+      <div class="gallery-caption">
+        <span class="gallery-name">Moon Earrings</span>
+        <span class="gallery-price">€ 195</span>
+      </div>
+    </div>
+    <div class="gallery-item item-5 fade-in">
+      <div class="gallery-img"></div>
+      <div class="gallery-caption">
+        <span class="gallery-name">Onyx Pendant</span>
+        <span class="gallery-price">€ 410</span>
+      </div>
+    </div>
+    <div class="gallery-item item-6 fade-in">
+      <div class="gallery-img"></div>
+      <div class="gallery-caption">
+        <span class="gallery-name">Solstice Chain</span>
+        <span class="gallery-price">€ 520</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="section-header fade-in">
+    <span class="section-number">— 03</span>
+    <h2 class="section-title">Get in <span class="italic">touch.</span></h2>
+  </div>
+
+  <div class="contact-grid">
+    <div class="fade-in">
+      <p class="contact-intro">
+        A piece caught your eye? A custom commission? Write to us — every message finds a personal reply.
+      </p>
+
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="label">Email</div>
+          <a href="mailto:contact@solobijou.com">contact@solobijou.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="label">Instagram</div>
+          <a href="https://instagram.com/solobijou" target="_blank">@solobijou</a>
+        </div>
+        <div class="contact-item">
+          <div class="label">Atelier</div>
+          <span>Paris — Singapore</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="fade-in" action="mailto:contact@solobijou.com" method="post" enctype="text/plain">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Solobijou — <span class="italic">Crafted with patience.</span></p>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
